@@ -1,0 +1,10 @@
+name=$CONNECTOR_NAME
+connector.class=io.confluent.connect.jdbc.JdbcSourceConnector
+tasks.max=1
+connection.url=$JDBC_URL
+mode=$MODE
+query=$QUERY
+topic.prefix=$TOPIC
+poll.interval.ms=$POLL_INTERVAL_MS
+timestamp.column.name=$TIMESTAMP_COLUMN_NAME
+
