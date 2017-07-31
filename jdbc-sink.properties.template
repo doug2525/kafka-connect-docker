@@ -1,0 +1,8 @@
+name=$SINK_CONNECTOR_NAME
+connector.class=io.confluent.connect.jdbc.JdbcSinkConnector
+tasks.max=1
+topics=$SINK_TOPICS
+connection.url=$SINK_JDBC_URL
+auto.create=$SINK_AUTO_CREATE
+auto.evolve=$SINK_AUTO_EVOLVE
+table.name.format=$SINK_TABLE_NAME_FORMAT
