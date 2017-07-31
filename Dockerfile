@@ -90,4 +90,4 @@ COPY configure.sh /configure.sh
 COPY connect-standalone.properties.template /etc/kafka/connect-standalone.properties.template
 COPY jdbc-source.properties.template /etc/kafka-connect-jdbc/jdbc-source.properties.template
 RUN chmod 755 configure.sh 
-ENTRYPOINT /configure.sh && bash
+ENTRYPOINT /configure.sh && /usr/bin/connect-standalone /etc/kafka/connect-standalone.properties /etc/kafka-connect-jdbc/jdbc-source.properties && bash
