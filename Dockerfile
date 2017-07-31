@@ -1,20 +1,4 @@
-#
-# NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
-#
-# PLEASE DO NOT EDIT IT DIRECTLY.
-#
-
 FROM buildpack-deps:stretch-scm
-
-# A few reasons for installing distribution-provided OpenJDK:
-#
-#  1. Oracle.  Licensing prevents us from redistributing the official JDK.
-#
-#  2. Compiling OpenJDK also requires the JDK to be installed, and it gets
-#     really hairy.
-#
-#     For some sample build times, see Debian's buildd logs:
-#       https://buildd.debian.org/status/logs.php?pkg=openjdk-8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		bzip2 \
@@ -85,9 +69,18 @@ RUN wget -qO - http://packages.confluent.io/deb/3.2/archive.key | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] http://packages.confluent.io/deb/3.2 stable main"
 RUN apt-get update &&  apt-get install -y --no-install-recommends confluent-platform-2.11
 
-# Script to configure properties in various config files.
+# Config script and templates.
+
 COPY configure.sh /configure.sh
 COPY connect-standalone.properties.template /etc/kafka/connect-standalone.properties.template
 COPY jdbc-source.properties.template /etc/kafka-connect-jdbc/jdbc-source.properties.template
+COPY jdbc-sink.properties.template /etc/kafka-connect-jdbc/jdbc-sink.properties.template
+
+## Placeholders for SSL files. Make sure these are updated before building the image.
+
+COPY kafka.client.keystore.jks /kafka.client.keystore.jks
+COPY kafka.client.truststore.jks /kafka.client.truststore.jks 
+
+
 RUN chmod 755 configure.sh 
 ENTRYPOINT /configure.sh && /usr/bin/connect-standalone /etc/kafka/connect-standalone.properties /etc/kafka-connect-jdbc/jdbc-source.properties && bash
