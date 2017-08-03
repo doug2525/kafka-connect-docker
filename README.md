@@ -9,7 +9,7 @@ I created this project to be able to deploy Kafka Connect standalone in an elega
 #### Clone the repo and change directory
 
 ```bash
-git clone git@github.com:cortics/kafka-connect-docker.git```
+git clone git@github.com:cortics/kafka-connect-docker.git
 cd kafka-connect-docker
 ```
 
