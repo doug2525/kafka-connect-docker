@@ -1,0 +1,11 @@
+name=$S3_SINK_NAME
+connector.class=io.confluent.connect.s3.S3SinkConnector
+tasks.max=1
+topics=$S3_SINK_TOPIC
+flush.size=$S3_SINK_FLUSH_SIZE
+s3.bucket.name=$S3_SINK_BUCKET_NAME
+s3.region=$S3_SINK_REGION
+s3.part.size=$S3_SINK_PART_SIZE
+storage.class=$S3_SINK_STORAGE_CLASS
+store.url=$S3_SINK_STORE_URL
+topics.dir=$S3_SINK_TOPICS_DIR
