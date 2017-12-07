@@ -2,7 +2,7 @@ FROM openjdk:8-jre
 
 # Add Confluent Repository and install Confluent Platform
 RUN wget -qO - http://packages.confluent.io/deb/3.2/archive.key | apt-key add -
-RUN echo "deb [arch=amd64] http://packages.confluent.io/deb/3.2 stable main" > /etc/apt/sources.list.d/confluent.list
+RUN echo "deb [arch=amd64] http://packages.confluent.io/deb/3.3 stable main" > /etc/apt/sources.list.d/confluent.list
 RUN apt-get update &&  apt-get install -y --no-install-recommends apt-utils confluent-kafka-connect-* confluent-schema-registry gettext confluent-kafka-2.11
 # Config script and templates.
 
