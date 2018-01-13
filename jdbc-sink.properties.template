@@ -1,6 +1,6 @@
 name=$SINK_CONNECTOR_NAME
 connector.class=io.confluent.connect.jdbc.JdbcSinkConnector
-tasks.max=1
+tasks.max=$TASKS_MAX
 topics=$SINK_TOPICS
 connection.url=$SINK_JDBC_URL
 auto.create=$SINK_AUTO_CREATE
