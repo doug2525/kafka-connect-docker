@@ -1,5 +1,6 @@
 FROM openjdk:8-jre
 
+ENV KAFKA_HEAP_OPTS "-Xmx2048M"
 # Add Confluent Repository and install Confluent Platform
 RUN wget -qO - http://packages.confluent.io/deb/3.3/archive.key | apt-key add -
 RUN echo "deb [arch=amd64] http://packages.confluent.io/deb/3.3 stable main" > /etc/apt/sources.list.d/confluent.list
