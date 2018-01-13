@@ -11,11 +11,5 @@ COPY connect-standalone.properties.template /etc/kafka/connect-standalone.proper
 COPY jdbc-source.properties.template /etc/kafka-connect-jdbc/jdbc-source.properties.template
 COPY jdbc-sink.properties.template /etc/kafka-connect-jdbc/jdbc-sink.properties.template
 
-## Placeholders for SSL files. Make sure these are updated before building the image.
-
-COPY kafka.client.keystore.jks /kafka.client.keystore.jks
-COPY kafka.client.truststore.jks /kafka.client.truststore.jks 
-
-
 RUN chmod 755 configure.sh 
 ENTRYPOINT /configure.sh && $KC_CMD && bash
