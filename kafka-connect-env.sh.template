@@ -13,10 +13,13 @@ KC_CMD=
 
 KAFKA_BOOTSTRAP_URL=
 
-# Schema Registry URLs. Format is http://host:port 
+# Converter related params. Format for Schema Registry URL is http://host:port 
 
 KEY_SR_URL=
 VALUE_SR_URL=
+KEY_CONVERTER_SCHEMAS_ENABLE=
+VALUE_CONVERTER_SCHEMAS_ENABLE=
+
 
 # Offsets file
 
