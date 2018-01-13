@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <pod-name>
+  namespace: default
+spec:
+  volumes:
+  - name: <secret-volume-name>
+    secret:
+      secretName: <k8s-secret-name>
+  containers:
+  - name: <container-name> 
+    image: <path/to/docker/image>
+    imagePullPolicy: IfNotPresent
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "/configure.sh; $KC_CMD; while true; do sleep 30; done;" ]
+    volumeMounts:
+    - name: <k8s-secret-volume-name>
+      mountPath: "/path/to/secret/folder"
+      readOnly: true
+    env:
+      - name: SOURCE_CONNECTOR_NAME
+        value: "app-name"
+      - name: CONNECTOR_CLASS
+        value: "<connector-class-name>"
+      - name: TASKS_MAX
+        value: "<num-tasks>"
+      - name: KAFKA_TOPIC
+        value: "kafka-topic-name"
+      - name: KEY_CONVERTER
+        value: "org.apache.kafka.connect.storage.StringConverter"
+      - name: VALUE_CONVERTER
+        value: "org.apache.kafka.connect.storage.StringConverter"
+      - name: KEY_CONVERTER_SCHEMAS_ENABLE
+        value: "false"
+      - name: VALUE_CONVERTER_SCHEMAS_ENABLE
+        value: "false"
+      - name: GOOGLE_APPLICATION_CREDENTIALS
+        value: "/path/to/google/credentials"
+    env:
+      - name: CLASSPATH
+        value: "<paths-having-additional-connector-jars>"
+      - name: KC_CMD
+        value: "/usr/bin/connect-standalone /etc/kafka/connect-standalone.properties /path/to/worker.properties"
+      - name: KAFKA_BOOTSTRAP_URL
+        value: "<kafka-endpoint>"
+      - name: KEY_SR_URL
+        value: "<sr-url>"
+      - name: VALUE_SR_URL
+        value: "<sr-url>"
+      - name: KC_OFFSETS_FILE
+        value: "/kafkaConnectOffsetsFileName"
+      - name: FULL_PATH_TO_TS
+        value: "/etc/kafka-connect/ssl-truststore"
+      - name: FULL_PATH_TO_KS
+        value: "/etc/kafka-connect/ssl-keystore"
+      - name: SSL_KEY_PW
+        valueFrom:
+          secretKeyRef:
+            name: <k8s-secret-name>
+            key: ssl-key-password
+      - name: SSL_KEYSTORE_PW
+        valueFrom:
+          secretKeyRef:
+            name: <k8s-secret-name>
+            key: ssl-keystore-password
+      - name: SSL_TRUSTSTORE_PW
+        valueFrom:
+          secretKeyRef:
+            name: <k8s-secret-name>
+            key: ssl-truststore-password
+  restartPolicy: Never
