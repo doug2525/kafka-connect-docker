@@ -23,14 +23,16 @@ VALUE_SR_URL=
 KC_OFFSETS_FILE=
 
 ## Absolute path within the Docker container. use host networking when possible, otherwise may not be reachable.
-
+### Both the keystore and trustore are provided as base64 encoded strings below.
 # SSL Properties
 
 SSL_KEY_PW=
 SSL_KEYSTORE_PW=
 SSL_TRUSTSTORE_PW=
-FULL_PATH_TO_TS=
+TRUSTSTORE=
+KEYSTORE=
 FULL_PATH_TO_KS=
+FULL_PATH_TO_TS=
 
 #### JDBC source related properties
 
