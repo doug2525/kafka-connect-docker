@@ -5,7 +5,6 @@
 # Bootstrap Kafka servers. If multiple servers are specified, they should be comma-separated.
 bootstrap.servers=$KAFKA_BOOTSTRAP_URL
 
-
 # The converters specify the format of data in Kafka and how to translate it into Connect data.
 # Every Connect user will need to configure these based on the format they want their data in
 # when loaded from or stored into Kafka
@@ -13,6 +12,8 @@ key.converter=$KEY_CONVERTER
 key.converter.schema.registry.url=$KEY_SR_URL
 value.converter=$VALUE_CONVERTER
 value.converter.schema.registry.url=$VALUE_SR_URL
+key.converter.schemas.enable=$KEY_CONVERTER_SCHEMAS_ENABLE
+value.converter.schemas.enable=$VALUE_CONVERTER_SCHEMAS_ENABLE
 
 # The internal converter used for offsets and config data is configurable and must be specified,
 # but most users will always want to use the built-in default. Offset and config data is never
@@ -21,7 +22,6 @@ internal.key.converter=org.apache.kafka.connect.json.JsonConverter
 internal.value.converter=org.apache.kafka.connect.json.JsonConverter
 internal.key.converter.schemas.enable=false
 internal.value.converter.schemas.enable=false
-
 
 # Local storage file for offset data
 offset.storage.file.filename=KC_OFFSETS_FILE
