@@ -1,6 +1,6 @@
 name=$SOURCE_CONNECTOR_NAME
-connector.class=io.confluent.connect.jdbc.JdbcSourceConnector
-tasks.max=1
+connector.class=$CONNECTOR_CLASS
+tasks.max=$TASKS_MAX
 connection.url=$SOURCE_JDBC_URL
 mode=$SOURCE_MODE
 query=$SOURCE_QUERY
