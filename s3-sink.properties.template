@@ -1,6 +1,6 @@
 name=$S3_SINK_NAME
 connector.class=io.confluent.connect.s3.S3SinkConnector
-tasks.max=1
+tasks.max=$TASKS_MAX
 topics=$S3_SINK_TOPIC
 flush.size=$S3_SINK_FLUSH_SIZE
 s3.bucket.name=$S3_SINK_BUCKET_NAME
