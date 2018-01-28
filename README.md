@@ -35,6 +35,8 @@ Server:
   Experimental:	true
 ```
 
+## Running connectors.
+
 #### Clone the repo and change directory
 
 ```bash
