@@ -1,10 +1,17 @@
 # kafka-connect-docker
 
-I created this project to be able to deploy Kafka Connect standalone in an elegant fashion. 
+I created this project to be able to deploy Kafka Connect instances in an elegant, secure and scalable manner. 
 
-## Steps to Deploy a Connector.
+## Prerequisites for running connectors. 
 
 #### Ensure that Docker is installed. 
+
+You can download Docker for linux using this command.
+
+```bash
+curl -SsL https://get.docker.com | bash
+```
+For macOS, you can download Docker from (here)[https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac].
 
 #### Clone the repo and change directory
 
