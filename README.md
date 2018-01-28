@@ -11,7 +11,7 @@ You can download Docker for linux using this command.
 ```bash
 curl -SsL https://get.docker.com | bash
 ```
-For macOS, you can download Docker from (here)[https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac].
+For macOS, you can download Docker from [here](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac).
 
 #### Clone the repo and change directory
 
