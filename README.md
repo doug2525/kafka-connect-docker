@@ -13,6 +13,28 @@ curl -SsL https://get.docker.com | bash
 ```
 For macOS, you can download Docker from [here](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac).
 
+You can verify a docker install by running `docker version`. The output should be something like this.
+```bash
+$ docker version
+Client:
+ Version:	17.12.0-ce
+ API version:	1.35
+ Go version:	go1.9.2
+ Git commit:	c97c6d6
+ Built:	Wed Dec 27 20:03:51 2017
+ OS/Arch:	darwin/amd64
+
+Server:
+ Engine:
+  Version:	17.12.0-ce
+  API version:	1.35 (minimum version 1.12)
+  Go version:	go1.9.2
+  Git commit:	c97c6d6
+  Built:	Wed Dec 27 20:12:29 2017
+  OS/Arch:	linux/amd64
+  Experimental:	true
+```
+
 #### Clone the repo and change directory
 
 ```bash
