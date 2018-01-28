@@ -42,7 +42,7 @@ To test the connectors, you'll need at minimum, a Kafka sandbox with the associa
 
  You can check `http://<your-machine-ip>:3030` for for the Landoop dashboard.
  
- You can download the certs needed to connect to Kafka over SSL from `http:<your-machine-ip>//:3030/certs`. The password for key/truststore and SSL key is `fastdata`.
+ You can download the certs needed to connect to Kafka over SSL from `http://<your-machine-ip>:3030/certs`. The password for key/truststore and SSL key is `fastdata`.
 
 ## Running connectors.
 
