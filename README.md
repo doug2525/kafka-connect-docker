@@ -1,10 +1,10 @@
 # kafka-connect-docker
 
-I created this project to be able to deploy Kafka Connect instances in an elegant, secure and scalable manner. 
+I created this project to be able to deploy Kafka Connect instances in an elegant, secure and scalable manner. I have tested all these connectors on macOS and Linux. 
 
-## Prerequisites for running connectors. 
+## Prerequisites for running connectors.
 
-#### Ensure that Docker is installed. 
+#### Ensure that Docker is installed.
 
 You can download Docker for linux using this command.
 
@@ -36,12 +36,12 @@ Server:
 ```
 To test the connectors, you'll need at minimum, a Kafka sandbox with the associated services running locally. Run can get them up and running by using Landoop's `fast-data-dev` image like so.
 ```bash
- docker run -dit --name kafka-sbx -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 -p 9581-9585:9581-9585 -p 9092-9093:9092-9093 -e ADV_HOST=<your-machine-ip> -e ENABLE_SSL=1 landoop/fast-data-dev:latest 
+ docker run -dit --name kafka-sbx -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 -p 9581-9585:9581-9585 -p 9092-9093:9092-9093 -e ADV_HOST=<your-machine-ip> -e ENABLE_SSL=1 landoop/fast-data-dev:latest
  ```
 Replace the value of `ADV_HOST` with your LAN IP.
 
 You can check `http://<your-machine-ip>:3030` for the Landoop dashboard.
- 
+
 You can download the certs needed to connect to Kafka over SSL from `http://<your-machine-ip>:3030/certs`. The password for key/truststore and SSL key is `fastdata`.
 
 ## Running connectors.
@@ -57,16 +57,14 @@ Make sure the client Keystore and Truststore are copied to this directory and th
 
 #### Run ```docker build .```
 
-The initial build takes a couple of minutes as it downloads a number of packages from the Internet. Subsequent builds will be much faster. 
+The initial build takes a couple of minutes as it downloads a number of packages from the Internet. Subsequent builds will be much faster.
 
 #### Copy the kafka-connect-env.sh.template to kafka-connect-env.sh and add configs.
 
-Once the env file is populated, run the docker container like so 
+Once the env file is populated, run the docker container like so
 
 ```docker run -dit --env-file kafka-connect-env.sh --name <container-name> <container-id-from-the-build-above>```
 
 To see the logs,
 
 ```docker logs -f <container-name>```
-
-
