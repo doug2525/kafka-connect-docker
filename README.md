@@ -38,11 +38,11 @@ To test the connectors, you'll need at minimum, a Kafka sandbox with the associa
 ```bash
  docker run -dit --name kafka-sbx -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 -p 9581-9585:9581-9585 -p 9092-9093:9092-9093 -e ADV_HOST=<your-machine-ip> -e ENABLE_SSL=1 landoop/fast-data-dev:latest 
  ```
- Replace the value of `ADV_HOST` with your LAN IP.
+Replace the value of `ADV_HOST` with your LAN IP.
 
- You can check `http://<your-machine-ip>:3030` for for the Landoop dashboard.
+You can check `http://<your-machine-ip>:3030` for the Landoop dashboard.
  
- You can download the certs needed to connect to Kafka over SSL from `http://<your-machine-ip>:3030/certs`. The password for key/truststore and SSL key is `fastdata`.
+You can download the certs needed to connect to Kafka over SSL from `http://<your-machine-ip>:3030/certs`. The password for key/truststore and SSL key is `fastdata`.
 
 ## Running connectors.
 
