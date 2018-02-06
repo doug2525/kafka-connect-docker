@@ -83,12 +83,36 @@ Kubectl is now configured to use the cluster.
 Loading cached images from config file.
 ```
 
+As indicated above in the output for the start command, you can
 To check the status of your new cluster, you can run `kubectl get componentstatuses`. The output should look something like this.
 
 ```bash
-$ kubectl get componentstatuses 
+$ kubectl get componentstatuses
 NAME                 STATUS    MESSAGE              ERROR
 etcd-0               Healthy   {"health": "true"}   
 controller-manager   Healthy   ok                   
-scheduler            Healthy   ok                   ```
+scheduler            Healthy   ok                  
+```
 
+To stop the VM temorarily, you can run `minikube stop`. The output will be something like this.
+```bash
+$ minikube stop
+Stopping local Kubernetes cluster...
+Machine stopped.
+```
+
+You can check the status of your Minikube cluster by running `minikube status`. The output will be something like this.
+```bash
+$ minikube status
+minikube: Running
+cluster: Running
+kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.100
+```
+
+To remove all k8s related components created by Minikube, you can run `minikube delete`. All data, configuration and state will be destroyed.
+```bash
+$ minikube delete
+Deleting local Kubernetes cluster...
+Machine deleted.
+```
+You should now have a functional Kubernetes cluster on your laptop/workstation. We'll use the cluster to deploy a number of Kafka Connect Sources and Sinks with a variety of datastores.
