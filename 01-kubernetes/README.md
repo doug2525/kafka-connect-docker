@@ -82,3 +82,13 @@ Starting cluster components...
 Kubectl is now configured to use the cluster.
 Loading cached images from config file.
 ```
+
+To check the status of your new cluster, you can run `kubectl get componentstatuses`. The output should look something like this.
+
+```bash
+$ kubectl get componentstatuses 
+NAME                 STATUS    MESSAGE              ERROR
+etcd-0               Healthy   {"health": "true"}   
+controller-manager   Healthy   ok                   
+scheduler            Healthy   ok                   ```
+
