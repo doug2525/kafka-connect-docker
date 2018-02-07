@@ -1,0 +1,9 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: <namespace>
+  name: <name>
+rules:
+- apiGroups: [""]
+  resources: ["pods","secrets","pods/log","pods/exec"]
+  verbs: ["*"]
