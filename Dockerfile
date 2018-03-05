@@ -1,9 +1,9 @@
-FROM openjdk:8-jre
+FROM openjdk:9-jre
 
-ENV KAFKA_HEAP_OPTS "-Xmx2048M"
+ENV KAFKA_HEAP_OPTS "-Xmx3072M"
 # Add Confluent Repository and install Confluent Platform
-RUN wget -qO - http://packages.confluent.io/deb/3.3/archive.key | apt-key add -
-RUN echo "deb [arch=amd64] http://packages.confluent.io/deb/3.3 stable main" > /etc/apt/sources.list.d/confluent.list
+RUN wget -qO - http://packages.confluent.io/deb/4.0/archive.key | apt-key add -
+RUN echo "deb [arch=amd64] http://packages.confluent.io/deb/4.0 stable main" > /etc/apt/sources.list.d/confluent.list
 RUN apt-get update &&  apt-get install -y --no-install-recommends apt-utils confluent-kafka-connect-* confluent-schema-registry gettext confluent-kafka-2.11
 # Config script and templates.
 
